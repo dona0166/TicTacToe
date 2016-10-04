@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2CC5D87F-8C20-445A-9F0E-B88AE261E902}</ProjectGuid>
+    <ProjectGuid>{B72DB19F-D584-4674-AC85-79ADABA3733C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TicTacToe.UnitTests</RootNamespace>
-    <AssemblyName>TicTacToe.UnitTests</AssemblyName>
+    <RootNamespace>TicTacToe.Services</RootNamespace>
+    <AssemblyName>TicTacToe.Services</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -54,10 +54,6 @@
       <HintPath>..\packages\NUnit3TestAdapter.3.4.1\lib\nunit.engine.api.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="nunit.framework, Version=3.4.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.3.4.1\lib\net45\nunit.framework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="NUnit3.TestAdapter, Version=3.4.1.0, Culture=neutral, PublicKeyToken=4cb40d35494691ac, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit3TestAdapter.3.4.1\lib\NUnit3.TestAdapter.dll</HintPath>
       <Private>True</Private>
@@ -72,20 +68,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameWinnerServiceTests.cs" />
+    <Compile Include="GameWinnerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TicTacToe.Services\TicTacToe.Services.csproj">
-      <Project>{b72db19f-d584-4674-ac85-79adaba3733c}</Project>
-      <Name>TicTacToe.Services</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
