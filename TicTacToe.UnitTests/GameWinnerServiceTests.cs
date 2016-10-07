@@ -11,6 +11,20 @@ namespace TicTacToe.UnitTests
     [TestFixture]
     class GameWinnerServiceTests
     {
+        IGameWinnerService _gameWinnerService;
+        private char[,] _gameBoard;
+
+        [SetUp]
+        public void SetupUnitTests()
+        {
+            _gameWinnerService = new GameWinnerService();
+            _gameBoard = new char[3, 3] { {' ',' ',' '},
+                                             {' ', ' ',' '},
+                                             {' ',' ',' '}};
+
+
+        }
+
         [Test]
         public void NeitherPlayerHasThreeInARow()
         {
@@ -41,18 +55,20 @@ namespace TicTacToe.UnitTests
         }
 
         [Test]
-        public void PlayerWithAllSpacesInMidRowIsWinner()
+        public void PlayerWithAllSpacesInFirstColumnIsWinner()
         {
-            IGameWinnerService gameWinnerService;
-            gameWinnerService = new GameWinnerService();
             const char expected = 'X';
-            var gameBoard = new char[3, 3]
-            { {' ', ' ', ' '},
-              {expected, expected, expected},
-              {' ', ' ', ' '} };
-            var actual = gameWinnerService.Validate(gameBoard);
-            Assert.AreEqual(expected.ToString(),
-            actual.ToString());
+            for (var columnIndex = 0; columnIndex < 3; columnIndex++)
+            {
+                _gameBoard[columnIndex, 0] = expected;
+            }
+            var actual = _gameWinnerService.Validate(_gameBoard);
+            Assert.AreEqual(expected.ToString(), actual.ToString());
         }
+
+        
+        
+
+        
     }
 }
