@@ -42,16 +42,30 @@ namespace TicTacToe.Services
 
         private const char SymbolForNoWinner = ' ';
 
-        public char Validate(char[,] gameBoard)
+        private static char CheckForThreeInARowDiagonally(char[,] gameBoard)
         {
+            var cellOneChar = gameBoard[0, 0];
+            var cellTwoChar = gameBoard[1, 1];
+            var cellThreeChar = gameBoard[2, 2];
 
-            var currentWinningSymbol = SymbolForNoWinner;
-            currentWinningSymbol = CheckForThreeInARowInHorizontalRow(gameBoard);
+            if (cellOneChar == cellTwoChar && cellTwoChar == cellThreeChar)
+            {
+                return cellOneChar;
+            }
+            return SymbolForNoWinner;
+        }
+
+        public char Validate(char[,] gameBoard){
+            var currentWinningSymbol = CheckForThreeInARowInHorizontalRow(gameBoard);
             if (currentWinningSymbol != SymbolForNoWinner)
                 return currentWinningSymbol;
             currentWinningSymbol = CheckForThreeInARowInVerticalColumn(gameBoard);
+            if (currentWinningSymbol != SymbolForNoWinner)
+                return currentWinningSymbol;
+            currentWinningSymbol = CheckForThreeInARowDiagonally(gameBoard);
             return currentWinningSymbol;
         }
+    
     
     
 
