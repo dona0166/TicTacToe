@@ -14,7 +14,7 @@ namespace TicTacToe.Services
 
     public class GameWinnerService : IGameWinnerService
     {
-        private static char CheckForThreeInARowInHorizontalRow(char[,] gameBoard)
+        public static char CheckForThreeInARowInHorizontalRow(char[,] gameBoard)
         {
             var columnOneChar = gameBoard[0, 0];
             var columnTwoChar = gameBoard[0, 1];
@@ -26,7 +26,7 @@ namespace TicTacToe.Services
             return ' ';
         }
 
-        private static char CheckForThreeInARowInVerticalColumn(char[,] gameBoard)
+        public static char CheckForThreeInARowInVerticalColumn(char[,] gameBoard)
         {
             var rowOneChar = gameBoard[0, 0];
             var rowTwoChar = gameBoard[1, 0];
@@ -42,7 +42,7 @@ namespace TicTacToe.Services
 
         private const char SymbolForNoWinner = ' ';
 
-        private static char CheckForThreeInARowDiagonally(char[,] gameBoard)
+        public static char CheckForThreeInARowDiagonally(char[,] gameBoard)
         {
             var cellOneChar = gameBoard[0, 0];
             var cellTwoChar = gameBoard[1, 1];
